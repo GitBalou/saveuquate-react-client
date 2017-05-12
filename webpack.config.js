@@ -8,7 +8,8 @@ module.exports = {
 
     // entry point for the processing tree
     entry: {
-        app: "./app.js"
+        app: ['./app.js' ],
+        mock: ['./mock/kittens.json']
     },
 
     // output move to this folder
@@ -19,7 +20,7 @@ module.exports = {
 
     // webpack resolves js and jsx files
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', 'css'],
         modules: [
             path.resolve('./src'),
             'node_modules'
@@ -39,7 +40,7 @@ module.exports = {
                         loader: 'babel-loader'
                     }
                 ]
-            }
+            },
         ]
     },
 
@@ -50,7 +51,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './index.html',
             chunks: ['app'],
-        })
+        }),
     ],
 
     // serveur de dev
